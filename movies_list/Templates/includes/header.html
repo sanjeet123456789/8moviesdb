@@ -1,5 +1,20 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>goosefile.com</title>
+<!--<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />-->
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{% static "assets/css/header-footer.css" %}">
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script> 
+<!--<script src="includes/ajax.js"></script> -->
+<script src="{% static "assets/js/header-footer.js" %}"></script>
+<script type="text/javascript">
+            var timerStart = Date.now();
+</script>
+</head>
+<body >
+  
+ <div id="loader"></div>
 
 
 <div id="mainContent">
@@ -287,19 +302,3 @@ style=" fill:#000000;padding-top:6px;" class="search-btn night-mode-pic"><g fill
     <a href="javascript:void(0)">Linux</a>
     
   </div>
-  <?php require_once 'db (2).php'?>
-  <link rel="stylesheet" type="text/css" href="includes/style.css">
-  <div class="container-header" >
-    <nav class="top-nav"style="display:none;">
-      <ul class="main" >
-     <!-- <= show_menu() ?>-->
-        
-      </ul>
-    </nav>
-  </div>
-
-  {% block content %}
-replace me object
-
-
-{%endblock%}
