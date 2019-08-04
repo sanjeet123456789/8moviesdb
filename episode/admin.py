@@ -1,3 +1,3 @@
 from django.contrib import admin
-from .models import episode
-admin.site.register(episode)
+from .models import Episode
+admin.site.register(Episode)

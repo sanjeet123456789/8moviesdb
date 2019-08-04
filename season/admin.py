@@ -1,3 +1,3 @@
 from django.contrib import admin
-from .models import season
-admin.site.register(season)
+from .models import Season
+admin.site.register(Season)

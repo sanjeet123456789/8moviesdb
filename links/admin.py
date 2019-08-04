@@ -1,3 +1,3 @@
 from django.contrib import admin
-from .models import link
-admin.site.register(link)
+from .models import Link
+admin.site.register(Link)

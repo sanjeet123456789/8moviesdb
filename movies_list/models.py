@@ -1,13 +1,13 @@
 from django.db import models
-from cast.models import cast
-from director.models import director
-from episode.models import episode
-from links.models import link
-from pics.models import pics
-from season.models import season
-from writer.models import writer
+from cast.models import Cast
+from director.models import Director
+from episode.models import Episode
+from links.models import Link
+from pics.models import Pics
+from season.models import Season
+from writer.models import Writer
 # Create your models here.
-class movies_list(models.Model):
+class Movies_list(models.Model):
 	id=models.AutoField(primary_key=True)
 	name=models.TextField(blank=False,null=False)
 	genres_list_id=models.TextField(blank=False,null=False)

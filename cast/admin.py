@@ -1,3 +1,3 @@
 from django.contrib import admin
-from .models import cast
-admin.site.register(cast)
+from .models import Cast
+admin.site.register(Cast)

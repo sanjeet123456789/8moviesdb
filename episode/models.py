@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class episode(models.Model):
+class Episode(models.Model):
 	episode_id=models.PositiveSmallIntegerField(blank=False)
 	episode_no=models.PositiveSmallIntegerField()
 	episode_name=models.CharField(max_length=40)
