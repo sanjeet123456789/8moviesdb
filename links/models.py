@@ -7,3 +7,8 @@ class link(models.Model):
 	link=models.TextField()
 	upvote=models.PositiveIntegerField()
 	views=models.PositiveIntegerField()
+	def __str__(self):
+		return self.server_name
+
+	class Meta:
+		verbose_name_plural="link"

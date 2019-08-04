@@ -17,7 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from movies_list.views import movies_detail
 
+from django.conf import settings 
+from django.conf.urls.static import static 
+from pics.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('pal/',movies_detail,name="movies-detail")
+	path('pal/',movies_detail,name="movies-detail"),
+	path('image_upload', hotel_image_view, name = 'image_upload'), 
+    path('success', success, name = 'success'), 
 ]
+
+if settings.DEBUG: 
+        urlpatterns += static(settings.MEDIA_URL, 
+                              document_root=settings.MEDIA_ROOT) 

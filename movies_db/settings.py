@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 	'movies_list',
 	'cast',
 	'director',
+	'episode',
 	'links',
 	'pics',
 	'season',
@@ -62,7 +63,8 @@ ROOT_URLCONF = 'movies_db.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"Templates")],
+        'DIRS': [os.path.join(BASE_DIR,"Templates"),os.path.join(BASE_DIR, 'director/Templates')],
+		
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,5 +139,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'

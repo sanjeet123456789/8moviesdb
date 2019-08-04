@@ -6,3 +6,8 @@ class season(models.Model):
 	season_name=models.TextField(blank=False)
 	eposide_id=models.PositiveIntegerField()
 	plot=models.TextField()
+
+	def __str__(self):
+		return self.season_name
+	class Meta:
+		verbose_name_plural="season"

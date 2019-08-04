@@ -1,5 +1,11 @@
 from django.db import models
-
+from cast.models import cast
+from director.models import director
+from episode.models import episode
+from links.models import link
+from pics.models import pics
+from season.models import season
+from writer.models import writer
 # Create your models here.
 class movies_list(models.Model):
 	id=models.AutoField(primary_key=True)
