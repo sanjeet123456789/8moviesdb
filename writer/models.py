@@ -2,6 +2,5 @@ from django.db import models
 
 # Create your models here.
 class writer(models.Model):
-	id=
-	writer_name=
-	image_id=
+	writer_name=models.CharField(max_length=40)
+	image_id=models.PositiveSmallIntegerField()
