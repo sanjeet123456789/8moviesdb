@@ -1,0 +1,12 @@
+{% include "includes/header.html"%}
+
+<a href="../admin/">admin</a>
+<ul>
+	{% for movie in movie_list %}
+		<li><a href="../movie/{{movie.id}}">{{movie.name}}</a></li>
+
+
+	{%endfor%}
+</ul>
+
+{% include "includes/footer.html"%}
