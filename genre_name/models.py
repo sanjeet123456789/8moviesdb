@@ -1,7 +1,7 @@
 from django.db import models
 
 class Genre_name(models.Model):
-	genre_name_id=models.PositiveSmallIntegerField()
+	genre_name_id=models.IntegerField()
 	genre_name=models.CharField(max_length=40)
 
 	def __str__(self):

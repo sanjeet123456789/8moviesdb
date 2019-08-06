@@ -1,7 +1,7 @@
 from django.db import models
 
 class Award_list(models.Model):
-	award_id=models.PositiveSmallIntegerField()
+	award_id=models.IntegerField()
 	award_name_id=models.PositiveSmallIntegerField()
 	
 	def __str__(self):

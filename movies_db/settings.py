@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'genre_name',
     'language_name',
 	'links',
-	'pics',
+    'pics',
 	'season',
 	'writer'
 ]
