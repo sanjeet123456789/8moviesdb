@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'award_list',
     'award_name',
 	'cast',
+    'country_list',
 	'director',
 	'episode',
     'genre_list',
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
 	'links',
     'pics',
 	'season',
+    'server_name',
+    'server_type',
 	'writer'
 ]
 

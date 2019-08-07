@@ -30,8 +30,9 @@ class Movies_list(models.Model):
 	IMDB_ratting=models.FloatField()
 	trailer_link=models.TextField()
 	views=models.IntegerField()
-	likes=models.TextField()
+	likes=models.IntegerField()
 	ratting=models.FloatField()
+	imdb_link=models.TextField()
 	tags=models.TextField()
 
 
