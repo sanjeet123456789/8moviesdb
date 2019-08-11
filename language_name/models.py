@@ -3,6 +3,7 @@ from django.db import models
 class Language_name(models.Model):
 	language_id=models.IntegerField()
 	language_name=models.CharField(max_length=40)
+	language_short_code=models.TextField(max_length=5)
 
 
 

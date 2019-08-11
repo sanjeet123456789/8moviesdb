@@ -53,6 +53,8 @@ INSTALLED_APPS = [
 	'season',
     'server_name',
     'server_type',
+    'subtitle_list',
+    'subtitle_name',
 	'writer'
 ]
 

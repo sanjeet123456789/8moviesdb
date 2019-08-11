@@ -7,6 +7,7 @@ class Episode(models.Model):
 	episode_name=models.CharField(max_length=40)
 	server_list_id=models.IntegerField()
 	views=models.IntegerField()
+	adult=models.BooleanField()
 
 	def __str__(self):
 		return self.episode_name
