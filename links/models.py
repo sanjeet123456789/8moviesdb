@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Link(models.Model):
-	server_list_id=models.PositiveIntegerField()
+	link_list_id=models.PositiveIntegerField()
 	server_name_id=models.CharField(max_length=15)
 	name=models.CharField(max_length=40)
 	link=models.TextField()

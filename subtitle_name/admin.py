@@ -1,3 +1,4 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Subtitle_name
+admin.site.register(Subtitle_name)

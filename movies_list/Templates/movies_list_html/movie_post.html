@@ -1,18 +1,18 @@
 {% include "includes/header.html"%}
 
 <h1>Hello from movies post</h1>
-{{ object.name }},{{object.tags}}
-<p>{{object1.Language_name}}{{object.Release.year}}</p>
+{{ movie_list.name }},{{movie_list.tags}}
+<p>{{language_name.language_name}}{{movie_list.Release.year}}</p>
 
 
-{% for t in tagw%}
+{% for t in tags%}
 {{t}}
 {%endfor%}
 
-{{cast_object}}
-{{sesion_object.season_name}}
+{{pics.id}}
+{{season.season_name}}
 
-<img style="height:200px;height:200px"src="../../media/{{image_object.pic_link}}">  
+ <img style="height:200px;height:200px"src="../../media/{{pics.pic_link}}">  
 {% include 'includes/Footer.html' %}
 
  

@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from movies_list.views import movies_detail
-from movies_list.views_ext import movies_details
 
+from movies_list.main_view import movies_details
 from django.conf import settings
 from django.conf.urls import url,include 
 from django.conf.urls.static import static 
@@ -26,9 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',movies_detail,name="movies-detail"),
 	path('pal/',movies_detail,name="movies-detail"),
-	path('image_upload', hotel_image_view, name = 'image_upload'), 
+	path('image_upload', hotel_image_view, name = 'image-upload'), 
     path('success', success, name = 'success'), 
-    path('movie/<int:movie_id>/',movies_details,name="movie_detail"),
+    path('movie/<int:movie_id>/',movies_details,name="movies-details"),
     path('movie_list/',include('movies_list.urls')),
     
 ]

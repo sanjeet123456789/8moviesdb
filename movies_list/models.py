@@ -1,7 +1,10 @@
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse,Http404
 from django.db import models
 from award_list.models import Award_list
 from award_name.models import Award_name
 from cast.models import Cast
+from country_list.models import Country_list
 from director.models import Director
 from episode.models import Episode
 from genre_list.models import Genre_list
@@ -10,6 +13,10 @@ from language_name.models import Language_name
 from links.models import Link
 from pics.models import Pics
 from season.models import Season
+from server_name.models import Server_name
+from server_type.models import Server_type
+from subtitle_list.models import Subtitle_list
+from subtitle_name.models import Subtitle_name
 from writer.models import Writer
 # Create your models here.
 class Movies_list(models.Model):
