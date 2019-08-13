@@ -33,11 +33,29 @@ from .main_view import *
 
 
 def movies_list(request):
-	movie_list=Movies_list.objects.all()[:10]
+	handler=Handler()
+	movie_list=handler.get_all_movie_list(10)
 	context={
 		'movie_list':movie_list
 
 	}
 	return render(request,'movies_list_html/movie_list.html',context)
+
+
+
+
+# def create_movies_list(request):
+# 	my_form=Movies_list_form()
+# 	if request.method=="POST":
+# 		my_form=Movies_list_form(request.POST)
+# 		if my_form.is_valid():
+# 			print(my_form.cleaned_data)
+# 			Indian_movies.objects.create(**my_form.cleaned_data)
+# 		else:
+# 			print(my_form.errors)
+# 	context={
+# 		"form":my_form
+# 	}
+# 	return render(request,"prodiuuct/completeform.html",context)
 
 

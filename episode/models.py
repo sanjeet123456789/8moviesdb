@@ -11,6 +11,7 @@ class Episode(models.Model):
 	adult=models.BooleanField()
 	filler=models.BooleanField()
 	desc=models.TextField()
+	
 
 	def __str__(self):
 		return self.episode_name

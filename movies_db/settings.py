@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'language_name',
 	'links',
     'pics',
+    'quality',
 	'season',
     'server_name',
     'server_type',
