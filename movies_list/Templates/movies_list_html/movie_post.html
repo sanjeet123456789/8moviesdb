@@ -15,7 +15,18 @@
 <h2>{{subtitle_list.subtitle_name_id}}(subtitle_name_list_id)</h2>
 <h3>{{subtitle_name.subtitle_name}}(subtile_name)</h3>
 
- <img style="height:200px;height:200px"src="../../media/{{pics.pic_link}}">  
+<p>{{best_quality.quality_short_name}}</p>
+
+<ul>
+	{% for quality in best_quality %}
+		<li>{{quality.quality_short_name}}</li>
+
+
+	{%endfor%}
+</ul>
+
+
+ <img style="height:200px;height:200px"src="../../media/{{cast_pics.pic_link}}">  
 {% include 'includes/Footer.html' %}
 
  

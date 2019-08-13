@@ -12,12 +12,14 @@ from genre_name.models import Genre_name
 from language_name.models import Language_name
 from links.models import Link
 from pics.models import Pics
+from quality.models import Quality
 from season.models import Season
 from server_name.models import Server_name
 from server_type.models import Server_type
 from subtitle_list.models import Subtitle_list
 from subtitle_name.models import Subtitle_name
 from writer.models import Writer
+
 
 # class MyHandler(FileSystemEventHandler):
 
@@ -83,7 +85,7 @@ class Handler():
 		return obj_episode
 	def get_genre_list(self,genre_id):
 		try:
-			obj_genre_list=Genre_list.objects.get(genre_id=genres_id)
+			obj_genre_list=Genre_list.objects.get(genre_id=genre_id)
 		except Genre_list.DoesNotExist:
 			obj_genre_list=None
 		return obj_genre_list
@@ -141,19 +143,45 @@ class Handler():
 		except Pics.DoesNotExist:
 			obj_pics=None
 		return obj_pics
-
+	def get_quality(self,quality_id):
+		try:
+			obj_quality=Quality.objects.get(quality_id=quality_id)
+		except Quality.DoesNotExist:
+			obj_quality=None
+		return obj_quality
 	def get_all_movie_list(self,x):
 		try:
 			all_movie_list=Movies_list.objects.all()[:x]
-		except Movie_list.DoesNotExist:
+		except Movies_list.DoesNotExist:
 			all_movie_list=None
 		return all_movie_list
+	
 
-class cards():
-	def get_card_info(self,movies_id):
-		handler=handler()
-		obj_movie_list=handler.get_movie_list
 
+
+class Card():
+	def get_card_info(self,id):
+		handler=Handler()
+		obj_movie_list=handler.get_movie_list(id=id)
+		obj_season=handler.get_season(season_id=obj_movie_list.season_id)
+		obj_episode=handler.get_episode(episode_id=obj_season.eposide_id)
+
+		# if obj_episode is not None:
+		# 	obj_link=handler.get_link(link_list_id=obj_episode.link_list_id)
+		# else:
+		# 	obj_link=None
+		# if obj_link is not  None:
+		# 	obj_quality=handler.get_best_quality(quality_id=obj_link.quality_id)		
+		# else:
+		# 	obj_quality=None
+
+		# return obj_quality
+	def get_best_quality(self,quality_id):
+		try:
+			one_best_quality=list(Quality.objects.filter(quality_id=quality_id).order_by('quality_priority')[:1])
+		except Quality.DoesNotExist:
+			one_best_quality=None
+		return one_best_quality
 
 
 
@@ -162,16 +190,17 @@ class cards():
 
 def movies_details(request,movie_id):
 	handler=Handler()
-	obj_movie_list=handler.get_movie_list(id=movie_id)
-	obj_award_list=handler.get_award_list(award_id=obj_movie_list.Awards_id)
-	obj_award_name=handler.get_award_name(award_name_id=obj_award_list.award_name_id)
-	obj_cast=Cast.objects.get(cast_id=obj_movie_list.cast_id)
+	card=Card()
+	obj_movie_list=	handler.get_movie_list(id=movie_id)
+	obj_award_list=	handler.get_award_list(award_id=obj_movie_list.Awards_id)
+	obj_award_name=	handler.get_award_name(award_name_id=obj_award_list.award_name_id)
+	obj_cast=handler.get_cast(cast_id=obj_movie_list.cast_id)
 	obj_country_list=handler.get_country_list(country_id=obj_movie_list.country_id)
 	obj_director=handler.get_director(director_id=obj_movie_list.director_id)
 	obj_season=handler.get_season(season_id=obj_movie_list.season_id)
 	obj_episode=handler.get_episode(episode_id=obj_season.eposide_id)
-	obj_genre_list=Genre_list.objects.get(genre_id=obj_movie_list.genres_list_id)
-	obj_genre_name=Genre_name.objects.get(genre_name_id=obj_genre_list.genre_name_id)
+	obj_genre_list=handler.get_genre_list(genre_id=obj_movie_list.genres_list_id)
+	obj_genre_name=handler.get_genre_name(genre_name_id=obj_genre_list.genre_name_id)
 	obj_language_name=handler.get_language_name(language_id=obj_movie_list.language_id)
 	if obj_episode is not None:
 		obj_link=handler.get_link(link_list_id=obj_episode.link_list_id)
@@ -181,27 +210,28 @@ def movies_details(request,movie_id):
 		obj_server_name=handler.get_server_name(server_name_id=obj_link.server_name_id)
 		obj_server_type=handler.get_server_type(server_type_id=obj_link.server_type_id)
 		obj_subtitle_list=handler.get_subtitle_list(subtitle_list_id=obj_link.subtitle_list_id)
-		
+		obj_quality=handler.get_quality(quality_id=obj_link.quality_id)		
 	else:
 		obj_server_name=None
 		obj_server_type=None
 		obj_subtitle_list=None
+		obj_quality=None
 
 	if obj_subtitle_list is not  None:
 		obj_subtitle_name=handler.get_subtitle_name(subtitle_name_id=obj_subtitle_list.subtitle_name_id)
 	else:	
 		obj_subtitle_name=None
+	if obj_link is not  None:
+		one_best_quality=card.get_best_quality(movie_id)
+	else:
+		one_best_quality=None
 
 	
 		
 	
 	obj_writer=handler.get_writer(writer_id=obj_movie_list.writer_id)
-	
-	
-	obj_pics=handler.get_pics(image_id=obj_cast.image_id)
-	
-	
-	
+	obj_cast_pics=handler.get_pics(image_id=obj_cast.image_id)
+
 	# |obj_director.image_id|obj_writer.image_id
 
 
@@ -223,13 +253,16 @@ def movies_details(request,movie_id):
 		'genre_name':obj_genre_name,
 		'language_name':obj_language_name,
 		'link':obj_link,
+		'quality':obj_quality,
 		'server_name':obj_server_name,
 		'server_type':obj_server_type,
 		'subtitle_list':obj_subtitle_list,
 		'subtitle_name':obj_subtitle_name,
 		'writer':obj_writer,
-		'pics':obj_pics,
-		'tags':tags
+		'cast_pics':obj_cast_pics,
+		'tags':tags,
+		'best_quality':one_best_quality,
+	
 
 	}
 	return render(request,"movies_list_html/movie_post.html",context)

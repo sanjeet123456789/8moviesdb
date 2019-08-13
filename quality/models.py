@@ -5,4 +5,6 @@ class Quality(models.Model):
 	quality_name=models.CharField(max_length=40)
 	quality_short_name=models.CharField(max_length=6)
 	quality_priority=models.PositiveIntegerField()
-	
+	class Meta:
+		verbose_name_plural='quality'
+
