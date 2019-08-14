@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 	'links',
     'pics',
     'quality',
+    'quality_name',
 	'season',
     'server_name',
     'server_type',

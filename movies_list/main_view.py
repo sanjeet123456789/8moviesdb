@@ -176,12 +176,7 @@ class Card():
 		# 	obj_quality=None
 
 		# return obj_quality
-	def get_best_quality(self,quality_id):
-		try:
-			one_best_quality=list(Quality.objects.filter(quality_id=quality_id).order_by('quality_priority')[:1])
-		except Quality.DoesNotExist:
-			one_best_quality=None
-		return one_best_quality
+
 
 
 
@@ -221,10 +216,7 @@ def movies_details(request,movie_id):
 		obj_subtitle_name=handler.get_subtitle_name(subtitle_name_id=obj_subtitle_list.subtitle_name_id)
 	else:	
 		obj_subtitle_name=None
-	if obj_link is not  None:
-		one_best_quality=card.get_best_quality(movie_id)
-	else:
-		one_best_quality=None
+
 
 	
 		
@@ -261,7 +253,7 @@ def movies_details(request,movie_id):
 		'writer':obj_writer,
 		'cast_pics':obj_cast_pics,
 		'tags':tags,
-		'best_quality':one_best_quality,
+		
 	
 
 	}
