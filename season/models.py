@@ -4,9 +4,9 @@ from django.db import models
 class Season(models.Model):
 	season_id=models.IntegerField()
 	season_no=models.IntegerField()
-	season_name=models.TextField(blank=False)
+	season_name=models.TextField(default=None)
 	eposide_id=models.IntegerField()
-	plot=models.TextField()
+	plot=models.TextField(default=None)
 
 	def __str__(self):
 		return self.season_name

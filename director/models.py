@@ -4,7 +4,7 @@ from django.db import models
 class Director(models.Model):
 	director_id=models.IntegerField()
 	director_no=models.IntegerField()
-	director_name_id=models.PositiveIntegerField(default=0)
+	director_name_id=models.PositiveIntegerField()
 	
 
 	class Meta:

@@ -1,11 +1,13 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse,Http404
-from .models import Movies_list
+from movies_list.models import Movies_list
 from award_list.models import Award_list
 from award_name.models import Award_name
 from cast.models import Cast
+from cast_name.models import Cast_name
 from country_list.models import Country_list
 from director.models import Director
+from director_name.models import Director_name
 from episode.models import Episode
 from genre_list.models import Genre_list
 from genre_name.models import Genre_name
@@ -19,6 +21,7 @@ from server_type.models import Server_type
 from subtitle_list.models import Subtitle_list
 from subtitle_name.models import Subtitle_name
 from writer.models import Writer
+from writer_name.models import Writer_name
 
 
 # class MyHandler(FileSystemEventHandler):
@@ -59,6 +62,12 @@ class Handler():
 		except Cast.DoesNotExist:
 			obj_cast=None
 		return obj_cast
+	def get_cast_name(self,cast_name_id):
+		try:
+			obj_cast_name=Cast_name.objects.get(cast_name_id=cast_name_id)
+		except Cast_name.DoesNotExist:
+			obj_cast_name=None
+		return obj_cast
 	def get_country_list(self,country_id):
 		try:
 			obj_country_list=Country_list.objects.get(country_id=country_id)
@@ -71,6 +80,12 @@ class Handler():
 		except Director.DoesNotExist:
 			obj_director=None
 		return obj_director
+	def get_director_name(self,director_name_id):
+		try:
+			obj_director_name=Director_name.objects.get(director_name_id=director_name_id)
+		except Director_name.DoesNot.Exist:
+			obj_director_name=None
+		return obj_director_name
 	def get_season(self,season_id):
 		try:
 			obj_season=Season.objects.get(season_id=season_id)
@@ -137,6 +152,12 @@ class Handler():
 		except Writer.DoesNotExist:
 			obj_writer=None
 		return obj_writer
+	def get_writer_name(self,writer_name_id):
+		try:
+			obj_writer_name=Writer_name.objects.get(writer_name_id=writer_name_id)
+		except Writer_name.DoesNotExist:
+			obj_writer_name=None
+		return obj_writer_name
 	def get_pics(self,image_id):
 		try:
 			obj_pics=Pics.objects.get(image_id=image_id)
@@ -192,8 +213,16 @@ def movies_details(request,movie_id):
 	obj_award_list=	handler.get_award_list(award_id=obj_movie_list.Awards_id)
 	obj_award_name=	handler.get_award_name(award_name_id=obj_award_list.award_name_id)
 	obj_cast=handler.get_cast(cast_id=obj_movie_list.cast_id)
+	if obj_cast is not None:
+		obj_cast_name=handler.get_cast_name(cast_name_id=obj_cast.cast_name_id)
+	else:
+		obj_cast_name=None
 	obj_country_list=handler.get_country_list(country_id=obj_movie_list.country_id)
 	obj_director=handler.get_director(director_id=obj_movie_list.director_id)
+	if obj_director is not None:
+		obj_director_name=handler.get_director_name(director_name_id=obj_director.director_name_id)
+	else:
+		obj_director_name=None
 	obj_season=handler.get_season(season_id=obj_movie_list.season_id)
 	obj_episode=handler.get_episode(episode_id=obj_season.eposide_id)
 	obj_genre_list=handler.get_genre_list(genre_id=obj_movie_list.genres_list_id)
@@ -224,6 +253,10 @@ def movies_details(request,movie_id):
 		
 	
 	obj_writer=handler.get_writer(writer_id=obj_movie_list.writer_id)
+	if writer is not None:
+		obj_writer_name=models.get_writer_name(writer_name_id=obj_writer.writer_name_id)
+	else:
+		obj_writer_name=None
 	obj_cast_pics=handler.get_pics(image_id=obj_cast.image_id)
 
 	# |obj_director.image_id|obj_writer.image_id
@@ -239,8 +272,10 @@ def movies_details(request,movie_id):
 		'award_list':obj_award_list,
 		'award_name':obj_award_name,
 		'cast':obj_cast,
+		'cast_name':cast_name_id,
 		'country_list':obj_country_list,
 		'director':obj_director,
+		'director_name':obj_director_name,
 		'season':obj_season,
 		'episode':obj_episode,
 		'genre_list':obj_genre_list,
@@ -253,6 +288,7 @@ def movies_details(request,movie_id):
 		'subtitle_list':obj_subtitle_list,
 		'subtitle_name':obj_subtitle_name,
 		'writer':obj_writer,
+		'writer_name':obj_writer_name,
 		'cast_pics':obj_cast_pics,
 		'tags':tags,
 		

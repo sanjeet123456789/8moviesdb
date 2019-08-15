@@ -20,6 +20,6 @@ q=Quality(quality_name_id=8,quality_name="1440pᴴᴰ",priority=8)
 q.save()
 q=Quality(quality_name_id=9,quality_name="2160p⁴ᴷ",priority=9)
 q.save()
-q=Quality(quality_name_id=1,quality_name="4320p⁸ᴷ",priority=10)
+q=Quality(quality_name_id=10,quality_name="4320p⁸ᴷ",priority=10)
 
 q.save()

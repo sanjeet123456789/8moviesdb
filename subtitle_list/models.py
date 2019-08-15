@@ -4,7 +4,7 @@ from django.db import models
 class Subtitle_list(models.Model):
 	subtitle_list_id=models.PositiveIntegerField()
 	subtitle_no=models.PositiveIntegerField()
-	subtitle_name_id=models.PositiveIntegerField()
+	subtitle_name_id=models.PositiveIntegerField(default=1)
 
 
 
