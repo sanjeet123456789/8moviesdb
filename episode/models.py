@@ -6,7 +6,7 @@ class Episode(models.Model):
 	episode_no=models.IntegerField()
 	episode_name=models.CharField(max_length=40)
 	link_list_id=models.IntegerField()
-
+	episode=models.DurationField()
 	views=models.IntegerField()
 	adult=models.BooleanField()
 	filler=models.BooleanField()

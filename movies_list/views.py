@@ -20,13 +20,13 @@ from subtitle_name.models import Subtitle_name
 from writer.models import Writer
 
 def movies_detail(request):
-	obj=Movies_list.objects.get(id=1)
-	obj_language=Language_name.objects.get(language_id=obj.language_id)
-	tags=obj.tags
-	tags=tags.split(",")
-	obj_cast=Cast.objects.get(cast_id=obj.cast_id)
-	obj_pics=Pics.objects.get(image_id=obj_cast.image_id)
-	obj_sesion=Season.objects.get(season_id=obj.season_id)
+	# obj=Movies_list.objects.get(id=1)
+	# obj_language=Language_name.objects.get(language_id=obj.language_id)
+	# tags=obj.tags
+	# tags=tags.split(",")
+	# obj_cast=Cast.objects.get(cast_id=obj.cast_id)
+	# obj_pics=Pics.objects.get(image_id=obj_cast.image_id)
+	# obj_sesion=Season.objects.get(season_id=obj.season_id)
 
 
 
@@ -35,12 +35,12 @@ def movies_detail(request):
 
 
 	context={
-		'object':obj,
-		'object1':obj_language,
-		'tagw':tags,
-		'cast_object':obj_cast.image_id,
-		'image_object':obj_pics,
-		'sesion_object':obj_sesion
+		# 'object':obj,
+		# 'object1':obj_language,
+		# 'tagw':tags,
+		# 'cast_object':obj_cast.image_id,
+		# 'image_object':obj_pics,
+		# 'sesion_object':obj_sesion
 
 	}
 	return render(request,"movies_list_html/movies.html",context)

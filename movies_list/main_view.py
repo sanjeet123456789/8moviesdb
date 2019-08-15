@@ -165,6 +165,8 @@ class Card():
 		obj_movie_list=handler.get_movie_list(id=id)
 		obj_season=handler.get_season(season_id=obj_movie_list.season_id)
 		obj_episode=handler.get_episode(episode_id=obj_season.eposide_id)
+		
+
 
 		# if obj_episode is not None:
 		# 	obj_link=handler.get_link(link_list_id=obj_episode.link_list_id)

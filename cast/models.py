@@ -4,12 +4,10 @@ from django.db import models
 class Cast(models.Model):
 	cast_id=models.IntegerField()
 	cast_no=models.IntegerField()
-	cast_name=models.CharField(max_length=40,blank=False)
-	actual_name=models.CharField(max_length=40,blank=False)
+	cast_name_id=models.PositiveIntegerField(default=0)
 	role=models.CharField(max_length=40,blank=False)
-	image_id=models.IntegerField(blank=False)
-	def __str__(self):
-		return self.cast_name
+
+
 
 	class Meta:
 		verbose_name_plural = "cast"

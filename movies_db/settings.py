@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'award_list',
     'award_name',
 	'cast',
+    'cast_name',
     'country_list',
 	'director',
+    'director_name',
 	'episode',
     'genre_list',
     'genre_name',
@@ -57,7 +59,8 @@ INSTALLED_APPS = [
     'server_type',
     'subtitle_list',
     'subtitle_name',
-	'writer'
+	'writer',
+    'writer_name'
 ]
 
 MIDDLEWARE = [
