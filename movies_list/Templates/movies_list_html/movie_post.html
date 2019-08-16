@@ -8,10 +8,22 @@
 {% for t in cast%}
 {{t.cast_name_id}}
 {%endfor%}
+{{cast_name}}
 
-{% for ts in cast_name%}
-{{ts.cast_name}}
+
+
+<p>
+{% for x in cast_name%}
+
+{{x|join:""|add:","}}
+
 {%endfor%}
+</p>
+
+
+
+
+
 
 {{pics.id}}
 <p>{{season.season_name}}(seasonname)</p>

@@ -215,21 +215,22 @@ def movies_details(request,movie_id):
 		obj_award_name=	handler.get_award_name(award_name_id=obj_award_list.award_name_id)
 	else:
 		obj_award_name=None
-	obj_cast=handler.get_cast(cast_id=obj_movie_list.cast_id)
-	for cast_l in obj_cast:
-		print(cast_l.cast_name_id)
+	obj_cast=list(handler.get_cast(cast_id=obj_movie_list.cast_id))
+	print(obj_cast[3].cast_name_id)
+	
 	if obj_cast is not None:
-		length = len(obj_cast) 
-		print(length)
-		for cast_name_l in obj_cast:
-			i=0
-			while i<= length:
-				obj_cast_name=list(handler.get_cast_name(cast_name_id=cast_name_l.cast_name_id))
-				obj_cast_name+=obj_cast_name
-				i+=1
-			
+		name=[]
+		pal=[]
+		for i in range(len(obj_cast)):
+			print(i)
+			obj_cast_name_l=list(handler.get_cast_name(cast_name_id=obj_cast[i].cast_name_id))
+			name.append(list(obj_cast_name_l[0].cast_name))
+		for x in range(len(name)):
+			pal+=("".join(name[x]))
+		obj_cast_name=name
 	else:
 		obj_cast_name=None
+	# print(obj_cast_name.cast_name_id)
 	# obj_country_list=handler.get_country_list(country_id=obj_movie_list.country_id)
 	# obj_director=handler.get_director(director_id=obj_movie_list.director_id)
 	# # if obj_director is not None:
