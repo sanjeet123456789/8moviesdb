@@ -5,8 +5,12 @@
 <p>{{language_name.language_name}}{{movie_list.Release.year}}</p>
 
 
-{% for t in tags%}
-{{t}}
+{% for t in cast%}
+{{t.cast_name_id}}
+{%endfor%}
+
+{% for ts in cast_name%}
+{{ts.cast_name}}
 {%endfor%}
 
 {{pics.id}}
@@ -26,7 +30,7 @@
 </ul>
 
 
- <img style="height:200px;height:200px"src="../../media/{{cast_pics.pic_link}}">  
+<!--  <img style="height:200px;height:200px"src="../../media/{{cast_pics.pic_link}}">   -->
 {% include 'includes/Footer.html' %}
 
  
