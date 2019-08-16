@@ -6,7 +6,7 @@ from award_name.models import Award_name
 from cast.models import Cast
 from country_list.models import Country_list
 from director.models import Director
-from episode.models import Episode
+# from episode.models import Episode
 from genre_list.models import Genre_list
 from genre_name.models import Genre_name
 from language_name.models import Language_name

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'country_list',
 	'director',
     'director_name',
-	'episode',
+    'episode',
     'genre_list',
     'genre_name',
     'language_name',

@@ -8,7 +8,7 @@ from cast_name.models import Cast_name
 from country_list.models import Country_list
 from director.models import Director
 from director_name.models import Director_name
-from episode.models import Episode
+# from episode.models import Episode
 from genre_list.models import Genre_list
 from genre_name.models import Genre_name
 from language_name.models import Language_name
