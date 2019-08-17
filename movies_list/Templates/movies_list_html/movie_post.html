@@ -8,9 +8,9 @@
 {% for t in cast%}
 {{t.cast_name_id}}
 {%endfor%}
-{{cast_name}}
 
 
+{{country_list.country_name}}
 
 <p>
 {% for x in cast_name%}
@@ -19,6 +19,111 @@
 
 {%endfor%}
 </p>
+<p>
+{% for x in director_name%}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+
+{% for t in season%}
+{{t.season_name}}
+{%endfor%}
+
+
+<p>
+{% for x in season %}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+<p>
+{% for x in episode %}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+{% for x in genre_name %}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+
+{% for t in language_name%}
+{{t.language_name}}
+{%endfor%}
+
+
+<p>
+{% for x in link %}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+
+<div>
+{% for j in quality %}
+
+{{j}}
+
+{%endfor%}
+</div>
+<div>
+{% for j in server_name %}
+
+{{j}}
+
+{%endfor%}
+</div>
+<div>
+{% for j in server_type %}
+
+{{j}}
+
+{%endfor%}
+</div>
+
+<div>
+{% for j in subtitle_list %}
+
+{{j.subtitle_name_id}}
+
+{%endfor%}
+</div>
+
+<div>
+{% for j in subtitle_name %}
+
+{{j}}
+
+{%endfor%}
+</div>
+
+<div>
+{% for j in writer %}
+
+{{j.writer_name_id}}
+
+{%endfor%}
+</div>
+
+<p>
+{% for x in writer_name %}
+
+{{x|join:""|add:","}}
+
+{%endfor%}
+</p>
+
+
+
+
+
 
 
 
