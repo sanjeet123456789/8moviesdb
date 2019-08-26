@@ -78,7 +78,7 @@ ROOT_URLCONF = 'movies_db.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,"Templates"),os.path.join(BASE_DIR, 'director/Templates')],
+        'DIRS': [os.path.join(BASE_DIR,"Templates"),os.path.join(BASE_DIR, 'director/Templates'),os.path.join(BASE_DIR, 'subtitle_name/Templates')],
 		
         'APP_DIRS': True,
         'OPTIONS': {
