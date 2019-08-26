@@ -206,6 +206,7 @@ class Card():
 
 
 
+
 def movies_details(request,movie_id):
 	handler=Handler()
 	card=Card()
@@ -397,6 +398,9 @@ def movies_details(request,movie_id):
 
 	tags=obj_movie_list.tags
 	tags=tags.split(",")
+	useserialcomma = True
+
+
 
 	context={
 
@@ -423,6 +427,7 @@ def movies_details(request,movie_id):
 		'writer_name':obj_writer_name,
 		'cast_pics':obj_cast_pics,
 		'tags':tags,
+	
 		
 	
 

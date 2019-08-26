@@ -14,9 +14,8 @@
 
 <p>
 {% for x in cast_name%}
-
-{{x|join:""|add:","}}
-
+{% if not forloop.first %}, {% endif %}
+{{x|join:""}}
 {%endfor%}
 </p>
 <p>
