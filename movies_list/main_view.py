@@ -247,12 +247,12 @@ def movies_details(request,movie_id):
 		name=[]
 		for i in range(len(obj_season)):
 			print(len(obj_season))
-			# obj_episode=handler.get_episode(episode_id=obj_season[i].episode_id)
-			# for i in range(len(obj_episode)):
-			# 	name.append((obj_episode[i].episode_name))
-		obj_episode=handler.get_episode(episode_id=obj_season[0].episode_id)
-		for i in range(len(obj_episode)):
-			name.append((obj_episode[i].episode_name))
+			obj_episode=handler.get_episode(episode_id=obj_season[i].episode_id)
+			for i in range(len(obj_episode)):
+				name.append((obj_episode[i].episode_name))
+		# obj_episode=handler.get_episode(episode_id=obj_season[0].episode_id)
+		# for i in range(len(obj_episode)):
+		# 	name.append((obj_episode[i].episode_name))
 		obj_episode=name
 	else:
 		obj_episode=None
@@ -262,12 +262,12 @@ def movies_details(request,movie_id):
 		name=[]
 		for i in range(len(obj_genre_list)):
 			obj_genre_name=handler.get_genre_name(genre_name_id=obj_genre_list[i].genre_name_id)
-			# for i in range(len(obj_genre_name)):
-			# 	name.append(obj_genre_name[0].genre_name)
+			for i in range(len(obj_genre_name)):
+				name.append(obj_genre_name[0].genre_name)
 		
-		obj_genre_name=handler.get_genre_name(genre_name_id=obj_genre_list[0].genre_name_id)
-		for i in range(len(obj_genre_name)):
-			name.append(obj_genre_name[0].genre_name)
+		# obj_genre_name=handler.get_genre_name(genre_name_id=obj_genre_list[0].genre_name_id)
+		# for i in range(len(obj_genre_name)):
+		# 	name.append(obj_genre_name[0].genre_name)
 		obj_genre_name=name
 	else:
 		obj_genre_name=None
@@ -276,7 +276,7 @@ def movies_details(request,movie_id):
 		name=[]
 
 		for i in range(len(obj_season)):
-			obj_episode=handler.get_episode(episode_id=obj_season[0].episode_id)
+			obj_episode=handler.get_episode(episode_id=obj_season[i].episode_id)
 			for  i in range(len(obj_episode)):
 				obj_link=handler.get_link(link_list_id=obj_episode[i].link_list_id)
 				for i in range(len(obj_link)):
@@ -291,7 +291,7 @@ def movies_details(request,movie_id):
 			
 			obj_quality=handler.get_quality(quality_id=obj_link_l[i].quality_id)
 			for i in range(len(obj_quality)):
-				quality_name_l.append(obj_quality[0].quality_name_id)
+				quality_name_l.append(obj_quality[i].quality_name_id)
 			obj_quality=quality_name_l	
 	else:
 		
@@ -303,7 +303,7 @@ def movies_details(request,movie_id):
 			server_name_l=[]
 			obj_server_name=handler.get_server_name(server_name_id=obj_link_l[i].server_name_id)
 			for i in range(len(obj_server_name)):
-				server_name_l.append(obj_server_name[0].server_name)
+				server_name_l.append(obj_server_name[i].server_name)
 			obj_server_name=server_name_l
 	else:
 		obj_server_name=None

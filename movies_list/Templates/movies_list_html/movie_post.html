@@ -20,34 +20,34 @@
 </p>
 <p>
 {% for x in director_name%}
-
-{{x|join:""|add:","}}
+{% if not forloop.first %}, {% endif %}
+{{x|join:""}}
 
 {%endfor%}
 </p>
 
-{% for t in season%}
+<!-- {% for t in season%}
 {{t.season_name}}
-{%endfor%}
+{%endfor%} -->
 
 
 <p>
 {% for x in season %}
 
-{{x|join:""|add:","}}
+{{x|join:""}}
 
 {%endfor%}
 </p>
 <p>
 {% for x in episode %}
-
-{{x|join:""|add:","}}
+{% if not forloop.first %}, {% endif %}
+{{x|join:""}}
 
 {%endfor%}
 </p>
 {% for x in genre_name %}
-
-{{x|join:""|add:","}}
+{% if not forloop.first %}, {% endif %}
+{{x|join:""}}
 
 {%endfor%}
 </p>
@@ -59,8 +59,8 @@
 
 <p>
 {% for x in link %}
-
-{{x|join:""|add:","}}
+{% if not forloop.first %}, {% endif %}
+{{x|join:""}}
 
 {%endfor%}
 </p>
@@ -74,14 +74,15 @@
 </div>
 <div>
 {% for j in server_name %}
-
+{% if not forloop.first %}, {% endif %}
 {{j}}
 
 {%endfor%}
 </div>
 <div>
+	
 {% for j in server_type %}
-
+{% if not forloop.first %}, {% endif %}
 {{j}}
 
 {%endfor%}

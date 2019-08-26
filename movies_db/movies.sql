@@ -515,7 +515,7 @@ episode.save()
 
 
 
--- episode_duration=datetime.timedelta(days=20),
+
 link=Link(link_list_id=2,name="ep1 link1",link="https://youtube.com/",subtitle_list_id=2,quality_id=2)
 link.save()
 server_name=Server_name(server_name_id=1,server_name="openload")
@@ -594,7 +594,7 @@ episode.save()
 episode=Episode(episode_id=16,episode_no=5,episode_name="Episode 2.5",link_list_id=24,desc="this is episode 2.5 description")
 episode.save()
 
-season=Season(season_id=6,season_no=3,season_name='Game of Throne Season - 3',episode_id=17,plot="This is plot section of game of throne season 3")
+season=Season(season_id=5,season_no=3,season_name='Game of Throne Season - 3',episode_id=17,plot="This is plot section of game of throne season 3")
 season.save()
 episode=Episode(episode_id=17,episode_no=1,episode_name="Episode 3.1",link_list_id=25,desc="this is episode 3.1 description")
 episode.save()
@@ -606,6 +606,21 @@ episode=Episode(episode_id=17,episode_no=4,episode_name="Episode 3.4",link_list_
 episode.save()
 episode=Episode(episode_id=17,episode_no=5,episode_name="Episode 3.5",link_list_id=29,desc="this is episode 3.5 description")
 episode.save()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
