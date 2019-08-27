@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from movies_list.views import movies_detail
-from subtitle_name.views import about_me,subtitle_name_create,raw_subtite_name_create
+from subtitle_name.views import about_me,subtitle_name_create,raw_subtite_name_create,updating_subtitle_name,delete_subtitle_name
 from movies_list.main_view import movies_details
 from django.conf import settings
 from django.conf.urls import url,include 
@@ -28,6 +28,8 @@ urlpatterns = [
     path('about/',about_me,name="about-me"),
     path('subtitle_name_create/',subtitle_name_create,name="subtitle-name-create"),
 	path('raw_subtitle_name_create/',raw_subtite_name_create,name="subtitle-name-create"),
+    path('update_subtitle_name_create/',updating_subtitle_name,name="updating-subtitle-name"),
+    path('subtitle_name/<int:id>/delete',delete_subtitle_name,name="delete-subtitle-name"),
     path('pal/',movies_detail,name="movies-detail"),
 	path('image_upload', hotel_image_view, name = 'image-upload'), 
     path('success', success, name = 'success'), 

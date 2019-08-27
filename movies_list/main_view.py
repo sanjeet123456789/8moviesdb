@@ -285,13 +285,13 @@ def movies_details(request,movie_id):
 	else:
 		obj_link=None
 	if obj_link is not  None:
-		obj_link_l=handler.get_link(link_list_id=obj_episode[0].link_list_id)
+		obj_link_l=handler.get_link(link_list_id=obj_episode[i].link_list_id)
 		for i in range(len(obj_link_l)):
 			quality_name_l=[]
 			
 			obj_quality=handler.get_quality(quality_id=obj_link_l[i].quality_id)
 			for i in range(len(obj_quality)):
-				quality_name_l.append(obj_quality[i].quality_name_id)
+				quality_name_l.append(obj_quality[0].quality_name_id)
 			obj_quality=quality_name_l	
 	else:
 		
@@ -303,7 +303,7 @@ def movies_details(request,movie_id):
 			server_name_l=[]
 			obj_server_name=handler.get_server_name(server_name_id=obj_link_l[i].server_name_id)
 			for i in range(len(obj_server_name)):
-				server_name_l.append(obj_server_name[i].server_name)
+				server_name_l.append(obj_server_name[0].server_name)
 			obj_server_name=server_name_l
 	else:
 		obj_server_name=None
