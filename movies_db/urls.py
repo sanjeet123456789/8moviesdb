@@ -18,6 +18,7 @@ from django.urls import path
 from movies_list.views import movies_detail
 from subtitle_name.views import about_me,subtitle_name_create,raw_subtite_name_create,updating_subtitle_name,delete_subtitle_name
 from movies_list.main_view import movies_details
+from users.views import register
 from django.conf import settings
 from django.conf.urls import url,include 
 from django.conf.urls.static import static 
@@ -26,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',movies_detail,name="movies-detail"),
     path('about/',about_me,name="about-me"),
+    path('register/',register,name="register"),
     path('subtitle_name_create/',subtitle_name_create,name="subtitle-name-create"),
 	path('raw_subtitle_name_create/',raw_subtite_name_create,name="subtitle-name-create"),
     path('update_subtitle_name_create/',updating_subtitle_name,name="updating-subtitle-name"),
